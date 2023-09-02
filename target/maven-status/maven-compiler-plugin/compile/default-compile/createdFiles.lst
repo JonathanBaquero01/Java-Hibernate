@@ -1,0 +1,11 @@
+com\latam\alura\tienda\modelo\ItemsPedido.class
+com\latam\alura\tienda\utils\JPAUtils.class
+com\latam\alura\tienda\modelo\Categoria.class
+com\latam\tienda\controller\RegistroDeProductos.class
+com\latam\alura\tienda\modelo\Cliente.class
+com\latam\alura\tienda\dao\CategoriaDao.class
+com\latam\alura\tienda\modelo\Pedido.class
+com\latam\alura\tienda\dao\PedidoDao.class
+com\latam\alura\tienda\dao\ClienteDao.class
+com\latam\alura\tienda\modelo\Producto.class
+com\latam\alura\tienda\dao\ProductoDao.class

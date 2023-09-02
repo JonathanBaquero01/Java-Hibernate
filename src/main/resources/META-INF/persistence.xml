@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <!-- ESTE ES EL XML PARA USAR HIBERNATE, varía por cada BD, para MySQL varía -->
+    <!-- EL PROPÓSITO DE ESTE XML ES Agrupar las configuraciones de una unidad de persistencia,
+         que representa una base de datos utilizada por la aplicación -->
+
+    <!-- POR CADA BD es una persistencia, el nombre de la BD será tienda, en transaction-type=
+         es como serán las consultas JTA -> servidor externo, RESOURCE_LOCAL -> Si es por la app -->
+    <persistence-unit name="tienda" transaction-type="RESOURCE_LOCAL">
+
+        <!-- IMPORTANTE: indicamos las entidades que serán mapeadas en la BD, cada clase aquí es una tabla -->
+   <class>com.latam.alura.tienda.modelo.Categoria</class>   
+       <class>com.latam.alura.tienda.modelo.Cliente</class>     
+           <class>com.latam.alura.tienda.modelo.ItemsPedido</class>
+         <class>com.latam.alura.tienda.modelo.Pedido</class>  
+           <class>com.latam.alura.tienda.Producto</class>
+
+        <properties>
+            <!-- Driver -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <!-- Ruta donde se encontrará la BD, cambia sila URL para MySQL -->
+           <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tienda?useSSL=false&amp;createDatabaseIfNotExist=true"/>
+
+
+            <!-- Usuario de la BD -->
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <!-- Clave de la BD -->
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+
+            <!-- Características internas de cómo se comunica la BD -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- Esto es para que muestre de manera más ordenada las consultas SQL en la consola -->
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- Le digo que cree la BD, update es en caso de que exista actualiza, si no, cree la tabla -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
